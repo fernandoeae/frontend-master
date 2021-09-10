@@ -1,0 +1,40 @@
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet">
+<div class="container" >
+  <button mat-raised-button color="primary" (click)="insert();">ADD</button>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="nome">
+    <th mat-header-cell *matHeaderCellDef> Nome </th>
+    <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="descricao">
+    <th mat-header-cell *matHeaderCellDef> Descrição </th>
+    <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="option">
+    <th mat-header-cell *matHeaderCellDef> Ação </th>
+    <td mat-cell *matCellDef="let element"> 
+        <span *ngIf="element.status == 1">CONCLUÍDA</span>
+        <div *ngIf="element.status == 0">
+          <button  mat-raised-button  (click)="statusTarefa(element.key)" >CONCLUIR</button>
+          <button mat-raised-button color="primary" (click)="edit(element)" style="margin-left: 5px;">Editar</button>
+          <button mat-raised-button color="warn"    (click)="modalDel(element.key)" style="margin-left: 5px;">Deletar</button>
+          
+        </div>
+        
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>

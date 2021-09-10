@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<div mat-dialog-content>
+  <p>Qual as informações da Tarefa</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input matInput [(ngModel)]="modalData.nome" >
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Descrição</mat-label>
+    <input matInput  [(ngModel)]="modalData.descricao" >
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="modalData" color="primary" cdkFocusInitial>{{title}}</button>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+</div>

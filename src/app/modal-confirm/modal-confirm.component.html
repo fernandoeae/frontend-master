@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Oiiii</h1>
+<div mat-dialog-content>
+  <p>Deseja mesmo deletar ?</p>
+  
+</div>
+<div mat-dialog-actions>
+ 
+  <button mat-button [mat-dialog-close]="'confirma'">Confirmar</button>
+  <button mat-button (click)="onNoClick()">Nop</button>
+</div>
